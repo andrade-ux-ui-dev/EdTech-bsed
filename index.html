@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdTech Group | Benefits of Technology in Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #b91c1c 0%, #d97706 50%, #fbbf24 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(45deg, #d97706, #fbbf24, #fde047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .red-gold-gradient {
+            background: linear-gradient(45deg, #b91c1c, #d97706, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(185, 28, 28, 0.15);
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #b91c1c, #fbbf24);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .active-nav::after {
+            width: 100%;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        .stats-card {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d97706, transparent);
+            margin: 4rem 0;
+        }
+        .gold-border {
+            border: 2px solid transparent;
+            background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+                        linear-gradient(45deg, #b91c1c, #d97706, #fbbf24) border-box;
+        }
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+        }
+        .modern-input {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            color: #f5f5f5;
+            transition: all 0.3s ease;
+        }
+        .modern-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+        }
+        .feature-badge {
+            background: linear-gradient(45deg, #b91c1c, #d97706, #fbbf24);
+            color: white;
+            font-weight: bold;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Navigation -->
+    <nav class="bg-black/90 backdrop-blur-lg py-5 sticky top-0 z-50 border-b border-red-900/30">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center shadow-lg pulse-animation">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold gold-gradient">EdTech Group</h1>
+                        <p class="text-xs text-amber-200/70">BSED Social Studies & Filipino 3-A</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-10">
+                    <a href="#home" class="nav-link active-nav text-amber-100 font-medium">Home</a>
+                    <a href="#benefits" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium">Benefits</a>
+                    <a href="#team" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium">Team</a>
+                    <a href="#research" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium">Research</a>
+                    <a href="#tools" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium">Tools</a>
+                    <a href="#contact" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-amber-100 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="mobile-menu md:hidden mt-6">
+                <div class="flex flex-col space-y-6 py-6 border-t border-amber-900/30">
+                    <a href="#home" class="nav-link active-nav text-amber-100 font-medium py-2">Home</a>
+                    <a href="#benefits" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium py-2">Benefits</a>
+                    <a href="#team" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium py-2">Team</a>
+                    <a href="#research" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium py-2">Research</a>
+                    <a href="#tools" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium py-2">Tools</a>
+                    <a href="#contact" class="nav-link text-amber-100/80 hover:text-amber-100 font-medium py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-20 pb-32" id="home">
+        <div class="absolute inset-0 bg-gradient-to-br from-red-900/10 via-amber-900/5 to-yellow-900/5"></div>
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-16 lg:mb-0 fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-red-600 to-amber-500 px-4 py-2 rounded-full mb-6">
+                        <i class="fas fa-bolt text-white"></i>
+                        <span class="text-sm font-bold text-white">MODERN EDUCATION TECHNOLOGY</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        <span class="block">Benefits of</span>
+                        <span class="red-gold-gradient">Technology</span>
+                        <span class="block">in Education</span>
+                    </h1>
+                    <p class="text-xl text-amber-100/80 mb-10 max-w-2xl">
+                        Exploring how digital tools and platforms transform teaching methodologies, enhance learning experiences, and improve educational outcomes.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#benefits" class="bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold py-4 px-8 rounded-xl hover-lift shadow-lg">
+                            Explore Key Benefits <i class="ml-3 fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#research" class="gold-border bg-black/50 text-amber-200 font-bold py-4 px-8 rounded-xl hover-lift">
+                            Latest Research <i class="ml-3 fas fa-chart-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-red-600/20 to-amber-500/20 blur-2xl rounded-3xl"></div>
+                        <div class="relative gold-border rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Modern classroom technology" 
+                                 class="w-full h-auto">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                                <div class="flex items-center">
+                                    <div class="bg-gradient-to-r from-red-600 to-amber-500 p-3 rounded-lg mr-4">
+                                        <i class="fas fa-brain text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-white text-lg">Transformative Learning</h3>
+                                        <p class="text-amber-100/80 text-sm">Technology enhances educational experiences</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="py-20" id="benefits">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gold-gradient">Key Benefits</span> of Technology in Education
+                </h2>
+                <p class="text-xl text-amber-100/70 max-w-3xl mx-auto">
+                    How digital innovation transforms teaching and learning experiences
+                </p>
+            </div>
+
+            <!-- Benefit 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="stats-card rounded-2xl p-8 hover-lift fade-in">
+                    <div class="benefit-icon gradient-bg">
+                        <i class="fas fa-user-cog text-white text-2xl"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl font-bold gold-gradient mr-4">01</span>
+                        <h3 class="text-2xl font-bold text-white">Personalized Learning Pathways</h3>
+                    </div>
+                    <p class="text-amber-100/80 mb-6">
+                        Adaptive learning technologies analyze individual student performance to create customized educational experiences. These systems adjust content difficulty dynamically, address specific knowledge gaps, and provide targeted support where needed most.
+                    </p>
+                    <div class="bg-gradient-to-r from-red-900/30 to-amber-900/20 p-4 rounded-lg">
+                        <p class="text-amber-300 text-sm"><i class="fas fa-chart-line mr-2"></i> <strong>Impact:</strong> Studies show significant improvement in learning outcomes compared to traditional one-size-fits-all approaches</p>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Personalized learning" 
+                         class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="fade-in order-2 lg:order-1">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Global collaboration" 
+                         class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+                <div class="stats-card rounded-2xl p-8 hover-lift fade-in order-1 lg:order-2" style="animation-delay: 0.1s;">
+                    <div class="benefit-icon gradient-bg">
+                        <i class="fas fa-globe-americas text-white text-2xl"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl font-bold gold-gradient mr-4">02</span>
+                        <h3 class="text-2xl font-bold text-white">Global Collaboration & Cultural Exchange</h3>
+                    </div>
+                    <p class="text-amber-100/80 mb-6">
+                        Digital platforms enable real-time international collaboration between students across different countries and cultures. This fosters cross-cultural understanding, develops digital communication skills, and prepares students for global citizenship.
+                    </p>
+                    <div class="bg-gradient-to-r from-red-900/30 to-amber-900/20 p-4 rounded-lg">
+                        <p class="text-amber-300 text-sm"><i class="fas fa-chart-line mr-2"></i> <strong>Impact:</strong> Increased cultural awareness and improved digital communication skills among participating students</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="stats-card rounded-2xl p-8 hover-lift fade-in">
+                    <div class="benefit-icon gradient-bg">
+                        <i class="fas fa-vr-cardboard text-white text-2xl"></i>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl font-bold gold-gradient mr-4">03</span>
+                        <h3 class="text-2xl font-bold text-white">Immersive Learning Experiences</h3>
+                    </div>
+                    <p class="text-amber-100/80 mb-6">
+                        Virtual and Augmented Reality technologies create experiential learning environments that were previously impossible. Students can explore historical sites, interact with complex scientific models, and practice skills in simulated environments.
+                    </p>
+                    <div class="bg-gradient-to-r from-red-900/30 to-amber-900/20 p-4 rounded-lg">
+                        <p class="text-amber-300 text-sm"><i class="fas fa-chart-line mr-2"></i> <strong>Impact:</strong> Enhanced retention rates for complex concepts and significantly higher engagement levels</p>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="VR learning" 
+                         class="rounded-2xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+
+            <!-- Additional Benefits Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                <div class="stats-card rounded-2xl p-6 hover-lift fade-in">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">AI-Powered Assessment</h4>
+                    <p class="text-amber-100/70 text-sm">Intelligent systems provide real-time feedback and automated grading, freeing teacher time for meaningful instruction.</p>
+                </div>
+                <div class="stats-card rounded-2xl p-6 hover-lift fade-in" style="animation-delay: 0.1s;">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-universal-access text-white"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Accessibility & Inclusion</h4>
+                    <p class="text-amber-100/70 text-sm">Assistive technologies ensure equitable access to education for students with diverse learning needs and abilities.</p>
+                </div>
+                <div class="stats-card rounded-2xl p-6 hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-white"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Data-Driven Insights</h4>
+                    <p class="text-amber-100/70 text-sm">Learning analytics provide educators with actionable data to identify at-risk students and inform instructional decisions.</p>
+                </div>
+                <div class="stats-card rounded-2xl p-6 hover-lift fade-in" style="animation-delay: 0.3s;">
+                    <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-white"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Flexible Learning Environments</h4>
+                    <p class="text-amber-100/70 text-sm">Cloud-based resources enable continuous learning beyond classroom walls and traditional schedules.</p>
+                </div>
+            </div>
+
+            <!-- Additional Benefits Continued -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="stats-card p-8 rounded-2xl hover-lift fade-in">
+                    <h4 class="text-xl font-bold text-white mb-4">Enhanced Student Engagement</h4>
+                    <p class="text-amber-100/70 mb-4">Interactive multimedia content, gamification elements, and collaborative platforms increase student motivation and participation in learning activities.</p>
+                    <div class="feature-badge inline-block">Increased Participation</div>
+                </div>
+                <div class="stats-card p-8 rounded-2xl hover-lift fade-in" style="animation-delay: 0.1s;">
+                    <h4 class="text-xl font-bold text-white mb-4">Teacher Professional Development</h4>
+                    <p class="text-amber-100/70 mb-4">Online platforms provide continuous professional learning opportunities, resource sharing, and global networking for educators.</p>
+                    <div class="feature-badge inline-block">Professional Growth</div>
+                </div>
+                <div class="stats-card p-8 rounded-2xl hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <h4 class="text-xl font-bold text-white mb-4">Digital Literacy Development</h4>
+                    <p class="text-amber-100/70 mb-4">Students develop essential digital skills that prepare them for higher education and future careers in an increasingly digital world.</p>
+                    <div class="feature-badge inline-block">Future Readiness</div>
+                </div>
+            </div>
+
+            <!-- Benefit Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stats-card p-8 rounded-2xl text-center hover-lift fade-in">
+                    <div class="text-5xl font-bold gold-gradient mb-4">87%</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Teachers Report</h3>
+                    <p class="text-amber-100/70">Technology significantly improves student engagement and motivation</p>
+                </div>
+                <div class="stats-card p-8 rounded-2xl text-center hover-lift fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-5xl font-bold gold-gradient mb-4">42%</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Learning Improvement</h3>
+                    <p class="text-amber-100/70">Enhanced learning outcomes with personalized technology integration</p>
+                </div>
+                <div class="stats-card p-8 rounded-2xl text-center hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-5xl font-bold gold-gradient mb-4">75%</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Retention Rates</h3>
+                    <p class="text-amber-100/70">Better retention of complex concepts with multimedia and interactive content</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Team Section -->
+    <section class="py-20" id="team">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gold-gradient">EdTech</span> Research Team
+                </h2>
+                <p class="text-xl text-amber-100/70 max-w-3xl mx-auto">
+                    BSED Social Studies & Filipino 3-A - Exploring Educational Technology
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+                <!-- Member Cards -->
+                <div class="stats-card rounded-2xl p-6 text-center hover-lift fade-in">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">P</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Phoebe May Anatan</h3>
+                    <div class="text-amber-300 text-sm font-medium mb-3">Research Lead</div>
+                    <div class="h-1 w-12 mx-auto bg-gradient-to-r from-red-600 to-amber-500 mb-4"></div>
+                </div>
+
+                <div class="stats-card rounded-2xl p-6 text-center hover-lift fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">M</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Mitchelle Caspillo</h3>
+                    <div class="text-amber-300 text-sm font-medium mb-3">Tech Integration</div>
+                    <div class="h-1 w-12 mx-auto bg-gradient-to-r from-red-600 to-amber-500 mb-4"></div>
+                </div>
+
+                <div class="stats-card rounded-2xl p-6 text-center hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">L</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Luna Faith Catalayban</h3>
+                    <div class="text-amber-300 text-sm font-medium mb-3">Content Developer</div>
+                    <div class="h-1 w-12 mx-auto bg-gradient-to-r from-red-600 to-amber-500 mb-4"></div>
+                </div>
+
+                <div class="stats-card rounded-2xl p-6 text-center hover-lift fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">A</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Alliah Nicollette Emano</h3>
+                    <div class="text-amber-300 text-sm font-medium mb-3">Digital Strategist</div>
+                    <div class="h-1 w-12 mx-auto bg-gradient-to-r from-red-600 to-amber-500 mb-4"></div>
+                </div>
+
+                <div class="stats-card rounded-2xl p-6 text-center hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">J</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">John Christian Alog</h3>
+                    <div class="text-amber-300 text-sm font-medium mb-3">Visual Designer</div>
+                    <div class="h-1 w-12 mx-auto bg-gradient-to-r from-red-600 to-amber-500 mb-4"></div>
+                </div>
+            </div>
+
+            <!-- Team Mission -->
+            <div class="gold-border rounded-2xl p-8 md:p-12 bg-gradient-to-br from-black/50 to-red-900/10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/4 mb-8 md:mb-0">
+                        <div class="text-6xl font-bold gold-gradient text-center md:text-left">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-3xl font-bold text-white mb-4">Our Educational Mission</h3>
+                        <p class="text-lg text-amber-100/80 mb-6">
+                            As future educators specializing in Social Studies and Filipino language, we explore how technology can enhance historical understanding, cultural preservation, and language acquisition. Our research focuses on creating inclusive, engaging digital learning experiences that prepare students for a globally connected world.
+                        </p>
+                        <div class="flex items-center">
+                            <div class="h-px flex-1 bg-gradient-to-r from-red-600 to-amber-500"></div>
+                            <div class="px-4">
+                                <span class="text-amber-300 font-bold">EDUCATION × TECHNOLOGY × INNOVATION</span>
+                            </div>
+                            <div class="h-px flex-1 bg-gradient-to-r from-amber-500 to-red-600"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Research & Tools Section -->
+    <section class="py-20" id="research">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Latest Research -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 text-white">Current Research Findings</h2>
+                    <div class="space-y-6">
+                        <div class="stats-card p-6 rounded-2xl hover-lift fade-in">
+                            <div class="flex items-start">
+                                <div class="gradient-bg p-3 rounded-lg mr-4">
+                                    <i class="fas fa-robot text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">AI in Educational Assessment</h4>
+                                    <p class="text-amber-100/70 mb-3">Recent studies demonstrate that AI-powered assessment tools significantly improve feedback quality while reducing teacher workload, allowing educators to focus more on individualized instruction.</p>
+                                    <div class="flex items-center text-amber-300 text-sm">
+                                        <i class="fas fa-book-open mr-2"></i>
+                                        <span>Peer-Reviewed Studies</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-card p-6 rounded-2xl hover-lift fade-in" style="animation-delay: 0.1s;">
+                            <div class="flex items-start">
+                                <div class="gradient-bg p-3 rounded-lg mr-4">
+                                    <i class="fas fa-brain text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Cognitive Science & Technology</h4>
+                                    <p class="text-amber-100/70 mb-3">Research in cognitive science shows that technology-enhanced learning activates multiple neural pathways, improving information retention and transfer to long-term memory.</p>
+                                    <div class="flex items-center text-amber-300 text-sm">
+                                        <i class="fas fa-book-open mr-2"></i>
+                                        <span>Interdisciplinary Research</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-card p-6 rounded-2xl hover-lift fade-in" style="animation-delay: 0.2s;">
+                            <div class="flex items-start">
+                                <div class="gradient-bg p-3 rounded-lg mr-4">
+                                    <i class="fas fa-chart-network text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Learning Analytics Effectiveness</h4>
+                                    <p class="text-amber-100/70 mb-3">Advanced learning analytics systems can identify at-risk students early in the learning process, enabling timely interventions that significantly improve academic outcomes.</p>
+                                    <div class="flex items-center text-amber-300 text-sm">
+                                        <i class="fas fa-book-open mr-2"></i>
+                                        <span>Data-Driven Education</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Essential Tools -->
+                <div id="tools">
+                    <h2 class="text-3xl font-bold mb-8 text-white">Essential Educational Technology Tools</h2>
+                    <div class="space-y-6">
+                        <div class="stats-card rounded-2xl overflow-hidden hover-lift fade-in">
+                            <div class="flex">
+                                <div class="w-1/4 bg-gradient-to-r from-red-900/30 to-amber-900/30 flex items-center justify-center">
+                                    <i class="fas fa-chalkboard-teacher text-amber-300 text-3xl"></i>
+                                </div>
+                                <div class="w-3/4 p-6">
+                                    <h4 class="font-bold text-white mb-2">Interactive Learning Platforms</h4>
+                                    <p class="text-amber-100/70 text-sm mb-3">Tools like Nearpod and Pear Deck transform traditional presentations into interactive learning experiences with real-time student engagement features.</p>
+                                    <span class="bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs px-3 py-1 rounded-full">Interactive</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.1s;">
+                            <div class="flex">
+                                <div class="w-1/4 bg-gradient-to-r from-red-900/30 to-amber-900/30 flex items-center justify-center">
+                                    <i class="fas fa-language text-amber-300 text-3xl"></i>
+                                </div>
+                                <div class="w-3/4 p-6">
+                                    <h4 class="font-bold text-white mb-2">Language Learning Technology</h4>
+                                    <p class="text-amber-100/70 text-sm mb-3">Platforms designed specifically for language acquisition, incorporating speech recognition, interactive exercises, and cultural content for comprehensive language learning.</p>
+                                    <span class="bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs px-3 py-1 rounded-full">Language Focus</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s;">
+                            <div class="flex">
+                                <div class="w-1/4 bg-gradient-to-r from-red-900/30 to-amber-900/30 flex items-center justify-center">
+                                    <i class="fas fa-users text-amber-300 text-3xl"></i>
+                                </div>
+                                <div class="w-3/4 p-6">
+                                    <h4 class="font-bold text-white mb-2">Collaborative Workspaces</h4>
+                                    <p class="text-amber-100/70 text-sm mb-3">Digital environments that facilitate group projects, peer review, and collective knowledge building among students in different locations.</p>
+                                    <span class="bg-gradient-to-r from-red-600 to-amber-500 text-white text-xs px-3 py-1 rounded-full">Collaborative</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gradient-to-b from-black to-red-900/10" id="contact">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="gold-gradient">Connect</span> With EdTech Research
+                    </h2>
+                    <p class="text-xl text-amber-100/70 max-w-2xl mx-auto">
+                        Interested in educational technology research or collaboration for Social Studies & Filipino education?
+                    </p>
+                </div>
+
+                <div class="gold-border rounded-2xl p-8 md:p-12 bg-gradient-to-br from-black/50 to-red-900/10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="fade-in">
+                            <h3 class="text-2xl font-bold text-white mb-6">EdTech Research Group</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="gradient-bg p-3 rounded-lg mr-4">
+                                        <i class="fas fa-book text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Research Focus</h4>
+                                        <p class="text-amber-100/70">Digital pedagogy in Social Studies and Filipino language education</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="gradient-bg p-3 rounded-lg mr-4">
+                                        <i class="fas fa-bullseye text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Mission</h4>
+                                        <p class="text-amber-100/70">To explore effective technology integration that enhances learning outcomes</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="gradient-bg p-3 rounded-lg mr-4">
+                                        <i class="fas fa-handshake text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white mb-1">Collaboration</h4>
+                                        <p class="text-amber-100/70">Open to research partnerships with educators and institutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in" style="animation-delay: 0.1s;">
+                            <form class="space-y-6">
+                                <div>
+                                    <label class="block text-amber-100 mb-2 font-medium" for="name">Your Name</label>
+                                    <input type="text" id="name" class="modern-input w-full px-4 py-3 rounded-lg" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label class="block text-amber-100 mb-2 font-medium" for="email">Email Address</label>
+                                    <input type="email" id="email" class="modern-input w-full px-4 py-3 rounded-lg" placeholder="you@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-amber-100 mb-2 font-medium" for="message">Message</label>
+                                    <textarea id="message" rows="4" class="modern-input w-full px-4 py-3 rounded-lg" placeholder="Your message or research inquiry..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-amber-500 text-white font-bold py-4 rounded-lg hover-lift transition-all duration-300">
+                                    Send Message <i class="ml-2 fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-16 pb-8 border-t border-red-900/30">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold gold-gradient">EdTech Research Group</h2>
+                            <p class="text-amber-200/70 text-sm">BSED Social Studies & Filipino 3-A</p>
+                        </div>
+                    </div>
+                    <p class="text-amber-100/60 max-w-md">
+                        Exploring the transformative benefits of technology in education through evidence-based research and practical implementation.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-amber-900/30 pt-8 text-center">
+                <p class="text-amber-100/50 text-sm mb-2">
+                    &copy; EdTech Research Group. All rights reserved.
+                </p>
+                <p class="text-amber-100/40 text-xs">
+                    Phoebe May Anatan • Mitchelle Caspillo • Luna Faith Catalayban • Alliah Nicollette Emano • John Christian Alog
+                </p>
+                <p class="text-amber-100/30 text-xs mt-4">
+                    Content based on current educational research and peer-reviewed studies
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 gradient-bg text-white p-4 rounded-full shadow-xl hover-lift opacity-0 transition-opacity duration-300 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                mobileMenuButton.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav', 'text-amber-100');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav', 'text-amber-100');
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show success message
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
+                submitBtn.classList.remove('from-red-600', 'to-amber-500');
+                submitBtn.classList.add('from-green-600', 'to-emerald-500');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.classList.remove('from-green-600', 'to-emerald-500');
+                    submitBtn.classList.add('from-red-600', 'to-amber-500');
+                    contactForm.reset();
+                }, 3000);
+            });
+        }
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
